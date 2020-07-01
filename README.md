@@ -1,9 +1,9 @@
 
  Unfortunatly i have pushed new files with my account info :( - had to make new repo
 version 1.03
-- update the LeaveGameNW function (mouse move position for "quit" button)
-- fixed the fillteam options description
-- delated unusable function
+- update the LeaveGameNW function (mouse move position for "quit" button).
+- fixed the fillteam options description.
+- delated not usable function.
 
 version 1.02
 - update the login function - account info and password will be sent only in fallout76 window + loger wait for news tab after login
