@@ -1,4 +1,4 @@
-﻿; Nuclear Winter afk script ver 1.02 by Cipencjusz
+; Nuclear Winter afk script ver 1.03 by Cipencjusz
 
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
@@ -35,8 +35,8 @@ global pass := "xxx"
 ; value = 1 --> selected position in map - check function ChooseStartPosition() for custom where to start
 global ChooseStartingPosition := 1
 
-; value = 0 --> fill team off
-; value = 1 --> fill team on - recomended if You don't want to show Your position to other players.
+; value = 0 --> fill team on
+; value = 1 --> fill team off - recomended if You don't want to show Your position to other players and play alone.
 global fillTeam := 1
 
 ;--------------------------------------------------------------------------------------------------------------------------------------
@@ -242,37 +242,6 @@ CanSeeHP() {
 			
 		;~ ),
 	}
-}
-
-;---------------------------------------------------------------------------
-MenuLong() { 
-;---------------------------------------------------------------------------
-			global MenuLong := 0
-			
-			Menu1 := 0
-			PixelSearch, Menu1x, Menu1y, 99, 262, 101, 264, 0xFBFACA, 70 
-			If ErrorLevel = 0	
-				Menu1 := 1
-			
-			Menu2 := 0
-			PixelSearch, Menu2x, Menu2y, 141, 289, 143, 291, 0xFAFAC6, 70 
-			If ErrorLevel = 0	
-				Menu2 := 1
-			
-			Menu3 := 0
-			PixelSearch, Menu2x, Menu2y, 10, 580, 10, 580, 0x000000, 5 
-			If ErrorLevel = 0	
-				Menu3 := 1
-
-			If (Menu1 = 1 and Menu2 = 1 and Menu3 = 1)
-			{	
-				global MenuLong := 1
-				FileAppend, 
-				(
-				menu long zaladowane
-					
-				), Logs\Logs.txt
-			}
 }
 
 ;---------------------------------------------------------------------------
@@ -747,7 +716,9 @@ LeaveGameNW() {
 		{
 			if ( MenuAfterDeath = 1 )
 			{
-				MouseMove, 114, 357
+				MouseMove, 104, 385
+				Sleep, 100
+				MouseMove, 114, 385
 				Sleep, 100
 				SendMouse_LeftClick()
 				Sleep, 300
